@@ -1,0 +1,18 @@
+#!/bin/sh -e
+
+cp config .config
+make olddefconfig
+mkdir -p "$1/boot"
+
+make
+
+make \
+    modules_install \
+    INSTALL_MOD_PATH="$1/usr"
+
+make \
+    install \
+    INSTALL_PATH="$1/boot"
+
+mv "$1/boot/vmlinuz"    "$1/boot/vmlinuz-$2"
+mv "$1/boot/System.map" "$1/boot/System.map-$2"
