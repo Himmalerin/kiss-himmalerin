@@ -2,6 +2,7 @@
 
 patch -p1 < no-perl.patch
 mkdir -p "$1/boot"
+mkdir -p "$1/efi/EFI/kiss"
 
 cp config .config
 make olddefconfig
@@ -16,5 +17,9 @@ make \
     install \
     INSTALL_PATH="$1/boot"
 
+# Set up the kernel
 mv "$1/boot/vmlinuz"    "$1/boot/vmlinuz-$2"
 mv "$1/boot/System.map" "$1/boot/System.map-$2"
+
+# cp the efi executable to the EFI partition
+cp "$1/boot/vmlinuz-$2" "$1/efi/EFI/kiss/"
