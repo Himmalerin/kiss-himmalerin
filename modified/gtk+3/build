@@ -1,42 +1,25 @@
 #!/bin/sh -e
 
 # Remove 'atk-bridge' dependency which removes the 'dbus' dependency.
-sed -i 's/ATK_PACKAGES="atk atk-bridge-2.0"/ATK_PACKAGES="atk"/' \
-    configure
+patch -p1 < remove-atkbridge.patch
 
 sed -i '/<atk-bridge.h>/d;/atk_bridge_adaptor_init/d' \
     gtk/a11y/gtkaccessibility.c
 
-# Don't build GTK examples/demos/testsuite.
-sed -i 's/demos tests testsuite examples//' Makefile.am Makefile.in
-sed -i 's/docs m4macros/m4macros/'          Makefile.am Makefile.in
+export DESTDIR="$1"
 
-./configure \
+meson \
     --prefix=/usr \
-    --sysconfdir=/etc \
-    --localstatedir=/var \
-    --enable-xkb \
-    --enable-xinerama \
-    --enable-xrandr \
-    --enable-xfixes \
-    --enable-xcomposite \
-    --enable-xdamage \
-    --enable-x11-backend \
-    --enable-wayland \
-    --enable-debug=no \
-    --disable-schemas-compile \
-    --disable-cups \
-    --disable-papi \
-    --disable-cloudprint \
-    --disable-glibtest \
-    --disable-nls \
-    --disable-installed-tests \
-    --enable-introspection=no \
-    --enable-colord=no \
-    --enable-gtk-doc-html=no
+    -Dcolord=no \
+    -Dintrospection=false \
+    -Ddemos=false \
+    -Dexamples=false \
+    -Dtests=false \
+    -Dinstalled_tests=false \
+    . output
 
-make
-make DESTDIR="$1" install
+ninja -C output
+ninja -C output install
 
 # We don't compile with librsvg which leads to this
 # utility solely causing compiler errors for some
