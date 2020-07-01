@@ -1,0 +1,3 @@
+#!/bin/sh -e
+
+install -Dm644 amd-ucode/* -t "$1/usr/lib/firmware/amd-ucode"
