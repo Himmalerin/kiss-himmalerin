@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+echo "$2" > .tarball-version
+autoreconf -fiv
+
+./configure \
+    --prefix=/usr \
+    --sbindir=/usr/bin \
+    --without-gtk
+
+make
+make DESTDIR="$1" install
