@@ -1,0 +1,38 @@
+Personal |/
+         |\ISS Repo                                             https://k1ss.org
+________________________________________________________________________________
+
+
+Himmalerin's Personal KISS Repo
+________________________________________________________________________________
+
+A git repository for packages I want that're unavailable in the main or
+community repositories. Split into two repos, one for "extra" (new) packages and
+one for packages that have been modified from either the main repos or the
+community repo.
+
+To use this repo you should have all of the main[1] repositories enabled, along
+with kisslinux/community[2] and sdsddsd1/mywayland[3].
+
+
+Licenses
+--------------------------------------------------------------------------------
+
+All files in the `extra` directory are ISC-licensed, all files in the `modified`
+directory are MIT-licensed, see LICENSE.extra and LICENSE.modified for details.
+
+
+Mirrors
+________________________________________________________________________________
+
+This git repository is mirrored to the following locations:
+
+- https://github.com/Himmalerin/kiss-himmalerin
+- https://git.sr.ht/~himmalerin/kiss-himmalerin
+
+
+References
+________________________________________________________________________________
+[1]: https://github.com/kisslinux/repo
+[2]: https://github.com/kisslinux/community
+[3]: https://github.com/sdsddsd1/mywayland
