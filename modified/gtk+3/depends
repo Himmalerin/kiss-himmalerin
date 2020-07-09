@@ -8,6 +8,7 @@ libXext
 libXi
 libXinerama
 libXrandr
+libxkbcommon
 libepoxy
 pango
 python make
