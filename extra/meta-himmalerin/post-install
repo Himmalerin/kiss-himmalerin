@@ -1,0 +1,39 @@
+#!/bin/sh -e
+
+cat <<EOF
+Services
+________________________________________________________________________________
+
+ DHCPCD (Dynamic IP addressing)
+   $ ln -s /etc/sv/dhcpcd /var/service/
+
+ NTPD (Automatically set date)
+   $ ln -s /etc/sv/ntpd /var/service/
+
+ UDEVD (Device manager)
+   $ ln -s /etc/sv/udevd /var/service/
+
+ NOTE: See 'kiss help wiki/software/dhcpcd' for more information on using
+       dhcpcd.
+
+
+OTHER
+________________________________________________________________________________
+
+ CONSOLE FONTS
+   $ font=/usr/share/consolefonts/ter-v18b.psf.gz
+   $ echo '[ "\$DISPLAY" ] || setfont' \$font >> \$HOME/.profile
+
+ TZDATA (Setting your time zone)
+   $ tz=America/New_York
+   $ tz_path="/usr/share/zoneinfo/\$tz"
+
+   $ echo "\$tz" >   /etc/timezone
+   $ ln -s \$tz_path /etc/localtime
+
+ NOTE: See 'kiss help wiki/console/fonts' for more information on setting
+       console fonts.
+       See 'kiss help wiki/software/tzdata' for more information on setting
+       your timezone.
+
+EOF
