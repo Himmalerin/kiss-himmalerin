@@ -1,3 +1,4 @@
+amiri
 alacritty
 alsa-utils
 btrfs-progs
@@ -5,6 +6,7 @@ dhcpcd
 efibootmgr
 file
 firefox
+fonts-tlwg
 font-util
 gnupg1
 htop
@@ -13,10 +15,17 @@ linux
 man-pages
 man-pages-posix
 mandoc
+mukta
+noto-fonts
 openssh
+source-code-pro
+source-han-sans
+stixfonts
 sudo
 sway
 terminus-font
+ttf-bitstream-vera
+twemoji-color-font
 tzdata
 vim
 xf86-input-libinput
