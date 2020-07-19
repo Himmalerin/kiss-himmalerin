@@ -16,7 +16,7 @@ with kisslinux/community[2] and sdsddsd1/mywayland[3].
 
 
 Licenses
---------------------------------------------------------------------------------
+________________________________________________________________________________
 
 All files in the `extra` directory are ISC-licensed, all files in the `modified`
 directory are MIT-licensed, see `./LICENSE` and `./modified/LICENSE` for
