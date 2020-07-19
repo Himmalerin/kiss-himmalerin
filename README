@@ -19,7 +19,8 @@ Licenses
 --------------------------------------------------------------------------------
 
 All files in the `extra` directory are ISC-licensed, all files in the `modified`
-directory are MIT-licensed, see LICENSE.extra and LICENSE.modified for details.
+directory are MIT-licensed, see `./LICENSE` and `./modified/LICENSE` for
+details.
 
 
 Mirrors
